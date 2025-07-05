@@ -107,17 +107,28 @@ Se adjunta a esta acta la planificación inicial.
 \label{sec:descripcion}
 
 \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de la tienda en línea de la empresa \empclientename. Se va a utilizar como insumo un conjunto de datos históricos, que abarca aproximadamente dos años, sobre ventas e inversión en publicidad. Estos datos se van a obtener desde una plataforma llamada Shopify para generar el modelo capaz de predecir con precisión. El propósito final es contar con una herramienta que facilite la toma de decisión estratégica basada en la predicción.
 
-El cliente \empclientename\ cuenta con una tienda en línea alojada en Shopify. Shopify es plataforma de comercio electrónico basada en la nube que permite a empresas y particulares crear y gestionar tiendas en línea. Además, esta ofrece una \textit{API} que facilita el acceso a datos como: los productos vendidos por día, los usuarios que realizan la compra, el canal de venta, etc. A través de esta \textit{API} también se obtiene métricas de comportamiento de los usuarios, tales como: la cantidad de páginas vistas, cuando agrega un producto al carrito de compra, cuando termina la compra y la tasa de conversión.
-Adicionalmente, utilizamos una plataforma llamada Triple Whale, especializada en la gestión y análisis de inversión publicitaria, que proporciona una \textit{API} donde se obtiene información detallada sobre la inversión publicitaria realizada por la tienda.
+La empresa \empclientename\ fabrica y comercializa barritas alimenticias en distintos sabores. 
+Como se trata de alimentos, la empresa necesita contar con pronósticos precisos de ventas, lo que le permite planificar la producción y evitar tanto faltantes como excedentes de stock.
 
+A partir de esta problemática, se propone desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de la tienda en línea de la empresa \empclientename. 
 
-El objetivo es que el lector, en una o dos páginas, exponga de qué se trata el proyecto y cuáles son sus desafíos, cuál es la motivación para realizarlo y su importancia.
+El desafío es que la precisión de la predicción de las ventas sea alta para que el cliente pueda tomar decisiones estratégicas con un alto grado de confianza. 
+A su vez, el cliente desea conocer la evolución de las ventas en el tiempo para poder ajustar la estrategia de marketing y de ventas en función de los resultados.
 
-Se debe introducir el contexto del proyecto, el estado del arte en la temática, describir la propuesta de valor, cuál es el problema que atiende y cuál es la solución que se propone. Se debe dar una descripción funcional de la solución que incluya un diagrama en bloques.
+Se va a utilizar como insumo un conjunto de datos históricos, que abarca aproximadamente dos años, sobre ventas e inversión en publicidad. 
+Estos datos se van a obtener desde una plataforma llamada Shopify para generar el modelo capaz de predecir con precisión. 
+El propósito final es contar con una herramienta que facilite la toma de decisión estratégica basada en la predicción.
 
-Puede ser útil incluir en esta sección la respuesta a alguna de estas preguntas:
+El cliente \empclientename\ cuenta con una tienda en línea alojada en Shopify. 
+Shopify es plataforma de comercio electrónico basada en la nube que permite a empresas y particulares crear y gestionar tiendas en línea. 
+Además, esta ofrece una \textit{API} que facilita el acceso a datos como: los productos vendidos por día, los usuarios que realizan la compra, el canal de venta, etc. 
+A través de esta \textit{API} también se obtiene métricas de comportamiento de los usuarios tales como: la cantidad de páginas vistas, cuando agrega un producto al carrito de compra, cuando termina la compra y la tasa de conversión.
+Adicionalmente, utilizamos una plataforma llamada Triple Whale, especializada en la gestión y análisis de inversión publicitaria que proporciona una \textit{API} donde se obtiene información sobre la inversión realizada por la tienda en sitios como: Google, Facebook, Instagram, Klaviyo,etc.
+
+\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
+Para llevar a cabo el proyecto se cuenta con el financiamiento de la empresa \empclientename\ y acceso a la \textit{API} de Shopify y a la \textit{API} de Triple Whale. 
+Asimismo, existe un acuerdo de confidencialidad con la empresa, que establece que los datos utilizados y los entregables generados durante el desarrollo del proyecto no podrán ser difundidos públicamente ni compartidos con terceros sin autorización expresa.
 
 \begin{itemize}
 	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
@@ -166,20 +177,16 @@ Por ejemplo, si una persona es Cliente pero también colabora u orienta, dejarla
 \hline
 \rowcolor[HTML]{C0C0C0} 
 Rol           & Nombre y Apellido & Organización 	& Puesto 	\\ \hline
-Auspiciante   &                   &              	&        	\\ \hline
-Cliente       & \clientename      &\empclientename	&        	\\ \hline
-Impulsor      &                   &              	&        	\\ \hline
+Cliente       & \clientename      &\empclientename	& CEO      	\\ \hline
 Responsable   & \authorname       & FIUBA        	& Alumno 	\\ \hline
-Colaboradores &                   &              	&        	\\ \hline
 Orientador    & \supname	      & \pertesupname 	& Director del Trabajo Final \\ \hline
-Equipo        & miembro1 \newline 
-				miembro2          &              	&        	\\ \hline
-Opositores    &                   &              	&        	\\ \hline
-Usuario final &                   &              	&        	\\ \hline
+Usuario final & Juan Willink      &\empclientename	& Gerente de Ventas	\\ \hline
 \end{tabularx}
 \end{table}
 
-El Director suele ser uno de los orientadores.
+Cliente: \clientename es el CEO de la empresa \empclientename y quien va a definir los requerimientos. Suele estar disponible en cualquier momento para responder preguntas y dar feedback.
+Usuario final: Juan Willink es el Gerente de Ventas de la empresa \empclientename y quien va a utilizar el modelo de inteligencia artificial para tomar decisiones estratégicas. 
+Vive en Estados Unidos y trabaja en el horario de la tarde.
 
 No dejar celdas vacías; si no hay nada que poner en una celda colocar un signo ``-''.
 
@@ -201,6 +208,14 @@ Por ejemplo:
 \label{sec:proposito}
 
 \begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
+
+El propósito de este proyecto es desarrollar un modelo de inteligencia artificial que permita predecir con precisión las ventas del producto alimenticio de la empresa \empclientename, 
+a partir de datos de ventas y de inversión publicitaria. 
+Esto permitirá a la empresa anticipar sus necesidades de producción, 
+optimizar la planificación de stock y tomar decisiones estratégicas basadas en datos, 
+Asimismo, reducir el riesgo de faltantes o excesos de inventario y mejorando la eficiencia operativa y comercial.
+
+
 
 ¿Por qué se hace el proyecto? ¿Qué se quiere lograr? 
 
