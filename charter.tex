@@ -217,73 +217,98 @@ Para el desarrollo del presente proyecto se supone que:
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-Los requerimientos deben enumerarse y de ser posible estar agrupados por afinidad, por ejemplo:
 
 \begin{enumerate}
 	\item Requerimientos funcionales:
 		\begin{enumerate}
-			\item El sistema debe...
-			\item Tal componente debe...
-			\item El usuario debe poder...
+			\item  El sistema debe permitir importar datos históricos de ventas desde la \textit{API} de Shopify.(Prioridad alta).
+			\item El sistema debe permitir importar datos históricos de inversión publicitaria desde la \textit{API} de Triple Whale. (Prioridad alta).
+			\item El sistema debe consolidar y procesar los datos provenientes de ambas plataformas para crear un conjunto de datos único. (Prioridad alta).
+			\item El sistema debe entrenar modelos de inteligencia artificial capaces de predecir las ventas del producto por período de tiempo (día, semana, mes). (Prioridad alta).
+			\item El sistema debe permitir actualizar periódicamente las predicciones, mediante una ejecución programada. (Prioridad alta).
+			\item El usuario debe poder consultar las predicciones de ventas a través del sistema Inventory Tracker, integrado de forma nativa. (Prioridad alta).
+			\item El sistema debe permitir seleccionar el período de tiempo sobre el cual realizar las predicciones. (Prioridad media).
+			\item El sistema debe mantener la confidencialidad y seguridad de la información procesada. (Prioridad alta).
 		\end{enumerate}
 	\item Requerimientos de documentación:
 		\begin{enumerate}
-			\item Requerimiento 1.
-			\item Requerimiento 2 (prioridad menor)
+			\item Documentación técnica que describa la arquitectura del sistema, el proceso de integración y el funcionamiento del modelo predictivo. (Prioridad alta).
+			\item Manual de usuario para la operación del módulo dentro de Inventory Tracker. (Prioridad media).
+			\item Documentación de instalación y configuración del módulo desarrollado. (Prioridad media).
+		
 		\end{enumerate}
-	\item Requerimiento de testing...
-	\item Requerimientos de la interfaz...
-	\item Requerimientos interoperabilidad...
-	\item etc...
+	\item Requerimiento de testing:
+		\begin{enumerate}
+			\item El sistema debe contar con pruebas unitarias sobre los componentes críticos. (Prioridad alta).
+			\item El sistema debe ser validado mediante pruebas funcionales integradas en Inventory Tracker. (Prioridad alta).
+			\item El modelo predictivo debe ser evaluado usando métricas estadísticas para asegurar precisión aceptable. (Prioridad alta).
+		\end{enumerate}
+	\item Requerimientos de la interfaz:
+		\begin{enumerate}  
+			\item La interfaz de usuario dentro de Inventory Tracker debe permitir visualizar las predicciones de ventas de manera clara y comprensible. (Prioridad alta).
+			\item Las predicciones deben presentarse con opciones gráficas (por ejemplo, gráficos de series temporales) para facilitar su interpretación. (Prioridad media).
+			\item El sistema debe permitir la descarga de las predicciones y datos consolidados en formato \textit{CSV}para su análisis externo. (Prioridad media).
+		\end{enumerate}
+
+	\item Requerimientos de interoperabilidad:  
+		\begin{enumerate}  
+		\item El sistema debe integrarse sin problemas con la infraestructura existente de Inventory Tracker. (Prioridad alta).
+		\item El sistema debe adaptarse a posibles cambios en las \textit{APIs} de Shopify y Triple Whale, siempre que estos cambios no impliquen modificaciones sustanciales en los datos entregados. (Prioridad media). 
+		\end{enumerate}  
+	
+	\item Requerimientos legales y regulatorios:
+		\begin{enumerate}  
+		\item El sistema debe cumplir con las leyes y regulaciones vigentes en materia de protección de datos personales. (Prioridad alta).
+		\item La información procesada y almacenada no debe ser divulgada a terceros, en cumplimiento con el acuerdo de confidencialidad firmado con \empclientename. (Prioridad alta).
+		\end{enumerate} 
+
 \end{enumerate}
 
-Leyendo los requerimientos se debe poder interpretar cómo será el proyecto y su funcionalidad.
-
-Indicar claramente cuál es la prioridad entre los distintos requerimientos y si hay requerimientos opcionales. 
-
-\textbf{¡¡¡No olvidarse de que los requerimientos incluyen a las regulaciones y normas vigentes!!!}
-
-Y al escribirlos seguir las siguientes reglas:
-\begin{itemize}
-	\item Ser breve y conciso (nadie lee cosas largas). 
-	\item Ser específico: no dejar lugar a confusiones.
-	\item Expresar los requerimientos en términos que sean cuantificables y medibles.
-\end{itemize}
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
 
-\begin{consigna}{red}
-Descripción: en esta sección se deben incluir las historias de usuarios y su ponderación (\textit{history points}). Recordar que las historias de usuarios son descripciones cortas y simples de una característica contada desde la perspectiva de la persona que desea la nueva capacidad, generalmente un usuario o cliente del sistema. La ponderación es un número entero que representa el tamaño de la historia comparada con otras historias de similar tipo.
-
-Se debe indicar explícitamente el criterio para calcular los \textit{story points} de cada historia.
-
-El formato propuesto es: 
 \begin{enumerate}
-\item ``Como [rol] quiero [tal cosa] para [tal otra cosa]."
+\item “Como analista de datos quiero importar datos de ventas desde Shopify para poder entrenar el modelo de predicción.”
+
+\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+
+\item “Como analista de datos quiero importar datos de inversión publicitaria desde Triple Whale para incluir la variable de inversión en el análisis de ventas.”
+
+\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+
+\item “Como analista de datos quiero consolidar los datos de Shopify y Triple Whale para tener un único dataset listo para el entrenamiento del modelo.”
 
 \textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+
+\item “Como analista de datos quiero entrenar un modelo que prediga las ventas para poder anticipar la demanda de producción.”
+
+\textit{Story points}: 13 (complejidad: 5, dificultad: 4, incertidumbre: 4)
+
+\item “Como usuario de Inventory Tracker quiero visualizar las predicciones de ventas dentro del sistema para poder planificar la producción.”
+
+\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+
+\item “Como usuario de Inventory Tracker quiero descargar las predicciones en formato CSV para analizarlas externamente.”
+
+\textit{Story points}: 3 (complejidad: 1, dificultad: 1, incertidumbre: 1)
+
+\item “Como responsable del sistema quiero recibir alertas si hay datos faltantes que puedan afectar significativamente la precisión de las predicciones.”
+
+\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
 \end{enumerate}
-\end{consigna}
 
 \section{8. Entregables principales del proyecto}
 \label{sec:entregables}
 
-\begin{consigna}{red}
-Los entregables del proyecto son (ejemplo):
-
 \begin{itemize}
 	\item Manual de usuario.
-	\item Diagrama de circuitos esquemáticos.
-	\item Código fuente del firmware.
-	\item Diagrama de instalación.
+	\item Diagramas de arquitectura del sistema y de integración con Inventory Tracker.
+	\item Código fuente del software para procesamiento de datos, entrenamiento de modelos y generación de predicciones.
+	\item Diagrama de flujo del proceso de carga, procesamiento y predicción de datos.
 	\item Memoria del trabajo final.
-	\item etc...
+	\item Documentación técnica detallada sobre la instalación, configuración y mantenimiento del módulo desarrollado.
 \end{itemize}
-\end{consigna}
 
 \section{9. Desglose del trabajo en tareas}
 \label{sec:wbs}
