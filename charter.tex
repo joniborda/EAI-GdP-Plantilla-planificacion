@@ -19,7 +19,7 @@
 \autor{Ing. Borda Jonathan Matias}
 
 % El nombre del director y co-director, se puede usar el cualquier lugar del documento con el comando \supname y \cosupname y \pertesupname y \pertecosupname
-\director{Título y Nombre del director}
+\director{Título y Nombre del director (a confirmar)}
 \pertenenciaDirector{pertenencia} 
 \codirector{} % para que aparezca en la portada se debe descomentar la opción codirector en los parámetros de documentclass
 \pertenenciaCoDirector{FIUBA}
@@ -106,8 +106,6 @@ Se adjunta a esta acta la planificación inicial.
 \section{1. Descripción técnica-conceptual del proyecto a realizar}
 \label{sec:descripcion}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-
 La empresa \empclientename\ fabrica y comercializa barritas alimenticias en distintos sabores. 
 Como se trata de alimentos, la empresa necesita contar con pronósticos precisos de ventas, lo que le permite planificar la producción y evitar tanto faltantes como excedentes de stock.
 
@@ -129,19 +127,7 @@ Adicionalmente, utilizamos una plataforma llamada Triple Whale, especializada en
 Para llevar a cabo el proyecto se cuenta con el financiamiento de la empresa \empclientename\ y acceso a la \textit{API} de Shopify y a la \textit{API} de Triple Whale. 
 Asimismo, existe un acuerdo de confidencialidad con la empresa, que establece que los datos utilizados y los entregables generados durante el desarrollo del proyecto no podrán ser difundidos públicamente ni compartidos con terceros sin autorización expresa.
 
-\begin{itemize}
-	\item ¿Cuál es el contexto del proyecto, es un emprendimiento personal, un proyecto para una empresa, es parte del programa de vinculación con empresas del posgrado?
-	\item ¿Existen o aplican condiciones especiales al proyecto, financiamiento de algún programa público o privado, acuerdos de confidencialidad, acuerdos sobre la propiedad intelectual de los entregables u otros?
-	\item ¿Cómo se compara la solución propuesta con el estado del arte en el campo de aplicación? ¿En qué aspectos destaca?
-	\item ¿Ayuda a la explicación si se incluye un lienzo Canvas del Modelo de Negocio?
-	\item ¿En qué estado del ciclo de vida está la solución que se propone?
-	\item ¿Cuáles son las características del cliente (el adoptante de los entregables del proyecto) qué valora, qué necesita?
-	\item ¿Por dónde pasa la innovación?
-\end{itemize}
-
-La descripción técnica-conceptual \textbf{debe incluir al menos un diagrama en bloques del sistema} y descripción funcional de la solución propuesta.
-
-Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase como la siguiente: ``En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que...''.  La regla es que las figuras nunca pueden ir antes de ser mencionadas en el texto, porque sino el lector no entiende por qué de pronto aparece una figura.
+En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistema. Se observa que las \textit{APIs} externas proveen los datos que alimentan el conjunto de datos del proyecto. Tanto este conjunto de datos como el modelo de predicción se integrarán dentro del sistema del cliente, denominado Inventory Tracker. Como resultado, el sistema generará el pronóstico de ventas.
 
 \begin{figure}[htpb]
 \centering 
@@ -152,11 +138,6 @@ Las figuras se deben mencionar en el texto ANTES de que aparezcan con una frase 
 
 \vspace{25px}
 
-El tamaño del texto en TODAS las figuras debe ser adecuado \textbf{para que NO pase lo que ocurre en la figura \ref{fig:diagBloques}}, donde el lector debe esforzarse para poder leer el texto. 
-
-Los colores usados en el diagrama deben ser adecuados, tal que ayuden a comprender mejor el diagrama. Se recomienda evitar colores primarios (como rojo, verde o cyan) y usar la gama de colores pastel.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{2. Identificación y análisis de los interesados}
 \label{sec:interesados}
@@ -179,7 +160,7 @@ Usuario Final           & Juan Willink      & \empclientename      & Gerente de 
 
 
 
-Cliente: \clientename es el CEO de la empresa \empclientename y quien va a definir los requerimientos. Suele estar disponible en cualquier momento para responder preguntas y dar feedback.
+Cliente: \clientename es el CEO de la empresa \empclientename y quien va a definir los requerimientos. Suele estar disponible en cualquier momento para responder preguntas  y brindar comentarios o aclaraciones.
 Usuario final: Juan Willink es el Gerente de Ventas de la empresa \empclientename y quien va a utilizar el modelo de inteligencia artificial para tomar decisiones estratégicas. 
 Vive en Estados Unidos y trabaja en el horario de la tarde.
 
@@ -189,53 +170,49 @@ Vive en Estados Unidos y trabaja en el horario de la tarde.
 
 El propósito de este proyecto es desarrollar un modelo de inteligencia artificial que permita predecir con precisión las ventas del producto alimenticio de la empresa \empclientename, 
 a partir de datos de ventas y de inversión publicitaria. 
-Esto permitirá a la empresa anticipar sus necesidades de producción, 
-optimizar la planificación de stock y tomar decisiones estratégicas basadas en datos. 
+Esto permitirá a la empresa: anticipar sus necesidades de producción, optimizar la planificación del inventario y tomar decisiones estratégicas basadas en datos. 
 Asimismo, reducir el riesgo de faltantes o excesos de inventario y mejorar la eficiencia operativa y comercial.
 
 \section{4. Alcance del proyecto}
 \label{sec:alcance}
 
-\begin{consigna}{red}
-¿Qué se incluye y que no se incluye en este proyecto?
-
-Se refiere al trabajo que se va a hacer para entregar el producto o resultado especificado. 
-
-Explicitar todo lo quede comprendido dentro del alcance del proyecto. Por ejemplo:
-
 El proyecto incluye:
 \begin{itemize}
-	\item Ítem 1.
-	\item Ítem 2.
-		\begin{itemize}
-		\item Subítem 1.
-		\item Subítem 2.
-		\item ...
-		\end{itemize}
-	\item ...
-	
+\item Relevamiento y análisis de los datos históricos de ventas de la tienda en línea obtenidos mediante la \textit{API} de Shopify.
+\item Relevamiento y análisis de los datos históricos de inversión publicitaria provenientes de la \textit{API} de Triple Whale.
+\item Limpieza, transformación y consolidación de datos provenientes de ambas plataformas.
+\item Análisis exploratorio de datos (EDA) para identificar patrones, tendencias y relaciones entre las variables.
+\item Desarrollo y entrenamiento de modelos de inteligencia artificial orientados a la predicción de ventas.
+\item Evaluación comparativa de distintos modelos para seleccionar el que ofrezca la mejor precisión y capacidad predictiva.
+\item Implementación de un módulo funcional integrado al sistema Inventory Tracker de la empresa, que permita realizar predicciones de ventas para períodos futuros.
+\item Documentación técnica del proceso, del modelo elegido y de su uso.
+\item Entrega de reportes que expliquen los hallazgos y recomendaciones derivadas del análisis.
 \end{itemize}
 
-Explicitar además todo lo que no quede incluido (``El presente proyecto no incluye...'')
+El presente proyecto no incluye:
+\begin{itemize}
+\item Implementaciones en tiempo real del modelo, es decir, sistemas que actualicen las predicciones de forma instantánea ante cada nuevo dato recibido. Sí se contempla la posibilidad de programar ejecuciones periódicas del modelo (por ejemplo, una vez al día) para actualizar las predicciones de manera regular.
+\item Garantía de precisión absoluta en las predicciones, ya que la misma depende de la calidad y estabilidad de los datos futuros y de factores externos no controlables.
+\item Acciones o recomendaciones específicas sobre estrategias de marketing más allá de lo inferido de los análisis de datos.
+\item Optimización de procesos internos de producción o logística, salvo en lo que respecta a la estimación de demanda.
+\end{itemize}
 
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 
 \section{5. Supuestos del proyecto}
 \label{sec:supuestos}
 
-\begin{consigna}{red} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
-``Para el desarrollo del presente proyecto se supone que: ...''
+Para el desarrollo del presente proyecto se supone que: 
 
 \begin{itemize}
-	\item Supuesto 1.
-	\item Supuesto 2.
-	\item ...
+\item La empresa \empclientename\ proveerá acceso completo y continuo a las \textit{APIs} externas de Shopify y Triple Whale para la obtención de datos históricos y actualizados.
+\item Se contará con acceso al repositorio de código y a la infraestructura necesaria para integrar el módulo de predicción en el sistema existente Inventory Tracker.
+\item La calidad, integridad y consistencia de los datos obtenidos desde las plataformas externas será suficiente para entrenar y validar los modelos de predicción.
+\item No se producirán cambios significativos en las políticas de acceso o en la estructura de datos de las \textit{APIs} de Shopify y Triple Whale durante el período de desarrollo.
+\item No existirán restricciones legales o contractuales que impidan el uso de los datos necesarios para el proyecto.
+\item Se contará con la disponibilidad de recursos computacionales necesarios para el procesamiento, entrenamiento y validación de los modelos de inteligencia artificial.
 \end{itemize}
 
-Por ejemplo, se podrían incluir supuestos respecto a disponibilidad de tiempo y recursos humanos y materiales, sobre la factibilidad técnica de distintos aspectos del proyecto, sobre otras cuestiones que sean necesarias para el éxito del proyecto como condiciones macroeconómicas o reglamentarias.
-
-\end{consigna} % ELIMINAR \begin{consigna}{red} y \end{consigna}{red} en las secciones que vayan completando para cada entrega parcial.
 
 \section{6. Requerimientos}
 \label{sec:requerimientos}
