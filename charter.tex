@@ -267,35 +267,44 @@ Para el desarrollo del presente proyecto se supone que:
 
 \section{7. Historias de usuarios (\textit{Product backlog})}
 \label{sec:backlog}
-
 \begin{enumerate}
-\item “Como analista de datos quiero importar datos de ventas desde Shopify para poder entrenar el modelo de predicción.”
+	\item Épica 1: Integración de fuentes de datos
+	\begin{enumerate}
+		\item “Como analista de datos quiero importar datos de ventas desde Shopify para poder entrenar el modelo de predicción.”
 
-\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+		\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
 
-\item “Como analista de datos quiero importar datos de inversión publicitaria desde Triple Whale para incluir la variable de inversión en el análisis de ventas.”
+		\item “Como analista de datos quiero importar datos de inversión publicitaria desde Triple Whale para incluir la variable de inversión en el análisis de ventas.”
 
-\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+		\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
 
-\item “Como analista de datos quiero consolidar los datos de Shopify y Triple Whale para tener un único dataset listo para el entrenamiento del modelo.”
+		\item “Como analista de datos quiero consolidar los datos de Shopify y Triple Whale para tener un único dataset listo para el entrenamiento del modelo.”
 
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+		\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+	\end{enumerate}
+	\item Épica 2: Modelado predictivo
+	\begin{enumerate}
+		\item “Como analista de datos quiero entrenar un modelo que prediga las ventas para poder anticipar la demanda de producción.”
 
-\item “Como analista de datos quiero entrenar un modelo que prediga las ventas para poder anticipar la demanda de producción.”
+		\textit{Story points}: 13 (complejidad: 5, dificultad: 4, incertidumbre: 4)
+	\end{enumerate}
+	\item Épica 3: Visualización y exportación de resultados
+	\begin{enumerate}
+		\item “Como usuario de Inventory Tracker quiero visualizar las predicciones de ventas dentro del sistema para poder planificar la producción.”
 
-\textit{Story points}: 13 (complejidad: 5, dificultad: 4, incertidumbre: 4)
+		\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
 
-\item “Como usuario de Inventory Tracker quiero visualizar las predicciones de ventas dentro del sistema para poder planificar la producción.”
+		\item “Como usuario de Inventory Tracker quiero descargar las predicciones en formato CSV para analizarlas externamente.”
 
-\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+		\textit{Story points}: 3 (complejidad: 1, dificultad: 1, incertidumbre: 1)
 
-\item “Como usuario de Inventory Tracker quiero descargar las predicciones en formato CSV para analizarlas externamente.”
+	\end{enumerate}
+	\item Épica 4: Monitoreo y alertas del sistema
+	\begin{enumerate}
+		\item “Como responsable del sistema quiero recibir alertas si hay datos faltantes que puedan afectar significativamente la precisión de las predicciones.”
 
-\textit{Story points}: 3 (complejidad: 1, dificultad: 1, incertidumbre: 1)
-
-\item “Como responsable del sistema quiero recibir alertas si hay datos faltantes que puedan afectar significativamente la precisión de las predicciones.”
-
-\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+		\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+	\end{enumerate}
 \end{enumerate}
 
 \section{8. Entregables principales del proyecto}
