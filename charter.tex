@@ -30,7 +30,7 @@
  
 \fechaINICIO{24 de junio de 2025}		%Fecha de inicio de la cursada de GdP \fechaInicioName
 \fechaFINALPlan{12 de agosto de 2025} 	%Fecha de final de cursada de GdP
-\fechaFINALTrabajo{21 de junio de 2026}	%Fecha de defensa pública del trabajo final
+\fechaFINALTrabajo{21 de junio de 2026 a definir}	%Fecha de defensa pública del trabajo final
 
 
 \begin{document}
@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de una tienda en línea de la empresa \empclientename. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \fechaFinalName.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de una tienda en línea de la empresa \empclientename. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \textcolor{red}{\fechaFinalName }.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -119,8 +119,8 @@ Estos datos se van a obtener desde Shopify, la plataforma donde el cliente tiene
 
 La plataforma Shopify está basada en la nube y permita a empresas y particulares crear y gestionar tiendas en línea. 
 Además, esta ofrece una \textit{API} que facilita el acceso a datos como: los productos vendidos por día, los usuarios que realizan la compra, el canal de venta, etc. 
-A través de esta \textit{API} también se obtiene métricas de comportamiento de los usuarios tales como: la cantidad de páginas vistas, cuando agrega un producto al carrito de compra, cuando termina la compra y la tasa de conversión.
-Adicionalmente, utilizamos una plataforma llamada Triple Whale, especializada en la gestión y análisis de inversión publicitaria que proporciona una \textit{API} donde se obtiene información sobre la inversión realizada por la tienda en sitios como: Google, Facebook, Instagram, Klaviyo,etc.
+A través de esta \textit{API} también se obtienen métricas de comportamiento de los usuarios tales como: la cantidad de páginas vistas, cuando agrega un producto al carrito de compra, cuando termina la compra y la tasa de conversión.
+Adicionalmente, se utiliza una plataforma llamada Triple Whale, especializada en la gestión y análisis de inversión publicitaria que proporciona una \textit{API} donde se obtiene información sobre la inversión realizada por la tienda en sitios como: Google, Facebook, Instagram, Klaviyo,etc.
 
 Para llevar a cabo el proyecto se cuenta con el financiamiento de la empresa \empclientename\ y acceso a la \textit{API} de Shopify y a la \textit{API} de Triple Whale. 
 Asimismo, existe un acuerdo de confidencialidad con la empresa, que establece que los datos utilizados y los entregables generados durante el desarrollo del proyecto no podrán ser difundidos públicamente ni compartidos con terceros sin autorización expresa.
@@ -161,7 +161,7 @@ Usuario Final           & Lic. Juan Willink      & \empclientename      & Gerent
 Cliente: \clientename\ es el CEO de la empresa \empclientename\ y quien va a definir los requerimientos. Suele estar disponible en cualquier momento para responder preguntas  y brindar comentarios o aclaraciones.
 
 Usuario final: Lic. Juan Willink es el Gerente de Ventas de la empresa \empclientename\ y quien va a utilizar el modelo de inteligencia artificial para tomar decisiones estratégicas. 
-Vive en Estados Unidos y trabaja en el horario de la tarde.
+Vive en una locación con diferente uso horario, por lo que su disponibilidad es de tiempo parcial.
 
 
 \section{3. Propósito del proyecto}
@@ -240,7 +240,7 @@ Para el desarrollo del presente proyecto se supone que:
 		\begin{enumerate}
 			\item El sistema debe contar con pruebas unitarias sobre los componentes críticos. (Prioridad alta).
 			\item El sistema debe ser validado mediante pruebas funcionales integradas en Inventory Tracker. (Prioridad alta).
-			\item El modelo predictivo debe ser evaluado usando métricas estadísticas para asegurar precisión aceptable. (Prioridad alta).
+			\item El modelo predictivo debe ser evaluado usando métricas estadísticas para asegurar una precisión mayor a 90\%. (Prioridad alta).
 		\end{enumerate}
 	\item Requerimientos de la interfaz:
 		\begin{enumerate}  
@@ -371,12 +371,14 @@ Para el desarrollo del presente proyecto se supone que:
 \item Análisis de casos extremos y situaciones de error (10 h)
 \item Generación de reportes de resultados de pruebas (15 h)
 \end{enumerate}
-\item Documentación y entregables (72 h)
+\item Documentación y entregables (152 h)
 \begin{enumerate}
 \item Redacción del manual de usuario (15 h)
 \item Preparación de reportes técnicos y resultados de pruebas (15 h)
 \item Elaboración de diagramas de arquitectura y flujo de datos (10 h)
-\item Preparación de memoria final del trabajo (20 h)
+\item Entregables de gestión de proyecto (30 h)
+\item Escritura de la memoria del trabajo versión 1 (30 h)
+\item Escritura de la memoria del trabajo de final  (40 h)
 \item Preparación de presentaciones para exposición del proyecto (12 h)
 \end{enumerate}
 \item Gestión y coordinación del proyecto (30 h)
@@ -387,7 +389,7 @@ Para el desarrollo del presente proyecto se supone que:
 \end{enumerate}
 \end{enumerate}
 
-Cantidad total de horas: 604 h
+Cantidad total de horas: 684 h
 
 \section{10. Diagrama de Activity On Node}
 \label{sec:AoN}
