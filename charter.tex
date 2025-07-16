@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de una tienda en línea de la empresa \empclientename. El trabajo tendrá un presupuesto preliminar estimado de \textcolor{red}{600} horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \textcolor{red}{\fechaFinalName }.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de una tienda en línea de la empresa \empclientename. El trabajo tendrá un presupuesto preliminar estimado de 684 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \textcolor{red}{\fechaFinalName }.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -322,6 +322,13 @@ Para el desarrollo del presente proyecto se supone que:
 \label{sec:wbs}
 
 \begin{enumerate}
+\item Planificación del proyecto (30 h)
+\begin{enumerate}
+
+\item Definir alcance y cronograma (10 h)
+\item Presentación de plan de trabajo (8 h)
+\item Reuniones de seguimiento con el cliente y partes interesadas (12 h)
+\end{enumerate}
 \item Análisis y relevamiento de datos (72 h)
 \begin{enumerate}
 \item Revisión de la documentación técnica de las APIs de Shopify y Triple Whale (12 h)
@@ -362,7 +369,7 @@ Para el desarrollo del presente proyecto se supone que:
 \item Documentación técnica de integración (10 h)
 \item Soporte técnico para puesta en marcha en ambiente productivo (10 h)
 \end{enumerate}
-\item Testing y validación (80 h)
+\item Prueba y validación (80 h)
 \begin{enumerate}
 \item Diseño de plan de pruebas funcionales y técnicas (10 h)
 \item Desarrollo de pruebas unitarias (15 h)
@@ -381,199 +388,175 @@ Para el desarrollo del presente proyecto se supone que:
 \item Escritura de la memoria del trabajo de final  (40 h)
 \item Preparación de presentaciones para exposición del proyecto (12 h)
 \end{enumerate}
-\item Gestión y coordinación del proyecto (30 h)
-\begin{enumerate}
-\item Reuniones de seguimiento con el cliente y partes interesadas (12 h)
-\item Gestión de cambios y control de versiones (8 h)
-\item Organización y planificación del cronograma de tareas (10 h)
-\end{enumerate}
 \end{enumerate}
 
 Cantidad total de horas: 684 h
 
-\section{10. Diagrama de Activity On Node}
-\label{sec:AoN}
 
-\begin{consigna}{red}
-Armar el AoN a partir del WBS definido en la etapa anterior.
+\section{10. Planificación de Sprints}
 
-Una herramienta simple para desarrollar los diagramas es el Draw.io (\url{https://app.diagrams.net/}).
-\href{https://app.diagrams.net}{Draw.io}
+Organizar las tareas técnicas del proyecto en sprints de trabajo que permitan distribuir de forma equilibrada la carga horaria total, estimada en 600 horas.
 
-
-\begin{figure}[htpb]
-\centering 
-\includegraphics[width=.8\textwidth]{./Figuras/AoN.png}
-\caption{Diagrama de \textit{Activity on Node}.}
-\label{fig:AoN}
-\end{figure}
-
-Indicar claramente en qué unidades están expresados los tiempos.
-De ser necesario indicar los caminos semi críticos y analizar sus tiempos mediante un cuadro.
-Es recomendable usar colores y un cuadro indicativo describiendo qué representa cada color.
-
-\end{consigna}
-
-\section{11. Diagrama de Gantt}
-\label{sec:gantt}
-
-\begin{consigna}{red}
-Existen muchos programas y recursos \textit{online} para hacer diagramas de Gantt, entre los cuales destacamos:
-
+\textbf{Consigna:}
 \begin{itemize}
-\item Planner
-\item GanttProject
-\item Trello + \textit{plugins}. En el siguiente link hay un tutorial oficial: \\ \url{https://blog.trello.com/es/diagrama-de-gantt-de-un-proyecto}
-\item Creately, herramienta online colaborativa. \\\url{https://creately.com/diagram/example/ieb3p3ml/LaTeX}
-\item Se puede hacer en latex con el paquete \textit{pgfgantt}\\ \url{http://ctan.dcc.uchile.cl/graphics/pgf/contrib/pgfgantt/pgfgantt.pdf}
+  \item Completar una tabla que relacione sprints con HU y tareas técnicas correspondientes.
+  \item Incluir estimación en horas para cada tarea.
+  \item Indicar responsable y porcentaje de avance estimado o completado.
+  \item Contemplar también tareas de planificación, documentación, redacción de memoria y preparación de defensa.
 \end{itemize}
 
-Pegar acá una captura de pantalla del diagrama de Gantt, cuidando que la letra sea suficientemente grande como para ser legible. 
-Si el diagrama queda demasiado ancho, se puede pegar primero la ``tabla'' del Gantt y luego pegar la parte del diagrama de barras del diagrama de Gantt.
-
-Configurar el software para que en la parte de la tabla muestre los códigos del EDT (WBS).\\
-Configurar el software para que al lado de cada barra muestre el nombre de cada tarea.\\
-Revisar que la fecha de finalización coincida con lo indicado en el Acta Constitutiva.
-
-En la figura \ref{fig:gantt}, se muestra un ejemplo de diagrama de gantt realizado con el paquete de \textit{pgfgantt}. 
-En la plantilla pueden ver el código que lo genera y usarlo de base para construir el propio.
-
-Las fechas pueden ser calculadas utilizando alguna de las herramientas antes citadas. Sin embargo, el siguiente ejemplo
-fue elaborado utilizando 
-\href{https://docs.google.com/spreadsheets/d/1fBz8NhSpc4tkkhz3KjJCbh1nR_ltDkfEcZi4tZXduqs}{esta hoja de cálculo}.
-
-Es importante destacar que el ancho del diagrama estará dado por la longitud del texto utilizado para las tareas 
-(Ejemplo: tarea 1, tarea 2, etcétera) y el valor \textit{x unit}. Para mejorar la apariencia del diagrama, es necesario
-ajustar este valor y, quizás, acortar los nombres de las tareas.
-
-\begin{figure}[htpb]
-  \begin{center}
-    \begin{ganttchart}[
-      time slot unit=day,
-      time slot format=isodate,
-      x unit=0.038cm,
-      y unit title=0.7cm,
-      y unit chart=0.6cm,
-      milestone/.append style={xscale=4}
-      ]{2021-03-05}{2021-12-16}
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{year} \\
-      \gantttitlecalendar*{2021-03-05}{2021-12-16}{month} \\
-      \ganttgroup{Duración Total}{2021-03-05}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%Organización
-      \ganttgroup{Organización}{2021-03-05}{2021-04-16} \\
-      \ganttbar{Planificación del proyecto}{2021-03-05}{2021-04-15} \\
-      %%%%%%%%%%%%%%%%%Ejecución
-      \ganttgroup{Ejecución}{2021-04-16}{2021-10-21} \\
-      \ganttbar{Tarea 1}{2021-04-16}{2021-04-29} \\
-      \ganttbar{Tarea 2}{2021-04-30}{2021-05-13} \\
-      \ganttbar{Tarea 3}{2021-05-14}{2021-05-27} \\
-      \ganttbar{Tarea 4}{2021-05-28}{2021-07-12} \\
-      \ganttbar{Tarea 5}{2021-07-13}{2021-08-09} \\
-      \ganttbar{Tarea 6}{2021-08-10}{2021-09-23} \\
-      \ganttbar{Tarea 7}{2021-09-24}{2021-09-30} \\
-      \ganttbar{Tarea 8}{2021-10-01}{2021-10-14} \\
-      \ganttbar{Tarea 9}{2021-10-15}{2021-10-21} \\
-      % %%%%%%%%%%%%%%%%%Finalización
-      \ganttgroup{Finalización}{2021-10-22}{2021-12-16} \\
-      \ganttbar{Memoria v1}{2021-10-22}{2021-11-04} \\
-      \ganttbar{Memoria v2}{2021-11-05}{2021-11-18} \\
-      \ganttbar{Memoria final}{2021-11-19}{2021-12-02} \\
-      % La fecha del siguiente milestone es la fecha en que terminamos la memoria
-      \ganttmilestone{Enviar memoria al director}{2021-12-02} \\
-      \ganttbar{Elaborar la presentación}{2021-12-03}{2021-12-16} \\
-      \ganttmilestone{Ensayo de la presentación}{2021-12-16} \\
-      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    \end{ganttchart}
-  \end{center}
-  \caption{Diagrama de gantt de ejemplo}
-  \label{fig:gantt}
-\end{figure}
-
-
-\begin{landscape}
-\begin{figure}[htpb]
-\centering 
-\includegraphics[height=.85\textheight]{./Figuras/Gantt-2.png}
-\caption{Ejemplo de diagrama de Gantt (apaisado).} %Modificar este título acorde.
-\label{fig:diagGantt}
-\end{figure}
-
-\end{landscape}
-
-\end{consigna}
-
-
-\section{12. Presupuesto detallado del proyecto}
-\label{sec:presupuesto}
-
-\begin{consigna}{red}
-Si el proyecto es complejo entonces separarlo en partes:
+\textbf{Conceptos clave:}
 \begin{itemize}
-	\item Un total global, indicando el subtotal acumulado por cada una de las áreas.
-	\item El desglose detallado del subtotal de cada una de las áreas.
+  \item Una \'{e}pica es una unidad funcional amplia; una historia de usuario es una funcionalidad concreta; un sprint es una unidad de tiempo donde se ejecutan tareas.
+  \item Las tareas son el nivel más desagregado: permiten estimar tiempos, asignar responsables y monitorear progreso.
 \end{itemize}
 
-IMPORTANTE: No olvidarse de considerar los COSTOS INDIRECTOS.
+\textbf{Duración sugerida:}
+\begin{itemize}
+  \item Para un proyecto de 600 h, se recomienda planificar entre 10 y 12 sprints de aproximadamente 2 semanas cada uno.
+  \item Asignar entre 45 y 50 horas efectivas por sprint a tareas técnicas.
+  \item Reservar 100 a 120 h para actividades no técnicas (planificación, escritura, reuniones, defensa).
+\end{itemize}
 
-Incluir la aclaración de si se emplea como moneda el peso argentino (ARS) o si se usa moneda extranjera (USD, EUR, etc). Si es en moneda extranjera se debe indicar la tasa de conversión respecto a la moneda local en una fecha dada.
+\textbf{Importante:}
+\begin{itemize}
+  \item En proyectos individuales, el responsable suele ser el propio autor.
+  \item Aun así, desagregar tareas facilita el seguimiento y mejora continua.
+\end{itemize}
 
-\end{consigna}
+\textbf{Conversión opcional de Story Points a horas:}
+\begin{itemize}
+  \item 1 SP \(\approx\) 2 h como referencia flexible.
+  \item Tener en cuenta aproximaciones tipo Fibonacci.
+\end{itemize}
 
 \begin{table}[htpb]
 \centering
-\begin{tabularx}{\linewidth}{@{}|X|c|r|r|@{}}
+\begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
 \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS DIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
- &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} &
-  \multicolumn{1}{c|}{} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-\multicolumn{4}{|c|}{\cellcolor[HTML]{C0C0C0}COSTOS INDIRECTOS} \\ \hline
-\rowcolor[HTML]{C0C0C0} 
-Descripción &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Cantidad} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor unitario} &
-  \multicolumn{1}{c|}{\cellcolor[HTML]{C0C0C0}Valor total} \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{1}{|l|}{} &
-   &
-   &
-   \\ \hline
-\multicolumn{3}{|c|}{SUBTOTAL} &
-  \multicolumn{1}{c|}{} \\ \hline
 \rowcolor[HTML]{C0C0C0}
-\multicolumn{3}{|c|}{TOTAL} &
-   \\ \hline
-\end{tabularx}%
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
+0 & Planificación & Definir alcance y cronograma & 10 h / 5 SP & Alumno & 80\% \\ \hline
+0 & Planificación & Presentación de plan de trabajo & 8 h / 4 SP & Alumno & 0\% \\ \hline
+0 & Planificación & Reuniones de seguimiento iniciales & 12 h / 6 SP & Alumno & 0\% \\ \hline
+1 & HU1 & Revisión documentación APIs Shopify/Triple Whale & 12 h / 6 SP & Alumno & 0\% \\ \hline
+1 & HU2 & Pruebas conexión y extracción datos prueba & 20 h / 10 SP & Alumno & 0\% \\ \hline
+2 & HU3 & Análisis exploratorio de datos (EDA) & 20 h / 10 SP & Alumno & 0\% \\ \hline
+2 & HU3 & Identificación variables relevantes & 10 h / 5 SP & Alumno & 0\% \\ \hline
+3 & HU4 & Documentación hallazgos EDA & 10 h / 5 SP & Alumno & 0\% \\ \hline
+3 & HU4 & Limpieza y normalización datos Shopify & 15 h / 8 SP & Alumno & 0\% \\ \hline
+3 & HU4 & Limpieza y normalización datos Triple Whale & 15 h / 8 SP & Alumno & 0\% \\ \hline
+4 & HU4 & Diseño y desarrollo pipeline datasets & 20 h / 10 SP & Alumno & 0\% \\ \hline
+4 & HU4 & Procesos detección/manejo outliers & 10 h / 5 SP & Alumno & 0\% \\ \hline
+5 & HU4 & Imputación datos faltantes & 10 h / 5 SP & Alumno & 0\% \\ \hline
+5 & HU4 & Pruebas y validación pipeline & 10 h / 5 SP & Alumno & 0\% \\ \hline
+5 & HU4 & Documentación técnica pipeline & 10 h / 5 SP & Alumno & 0\% \\ \hline
+6 & HU4 & Investigación algoritmos predicción & 15 h / 8 SP & Alumno & 0\% \\ \hline
+6 & HU4 & Implementación inicial modelos candidatos & 30 h / 15 SP & Alumno & 0\% \\ \hline
+\end{tabularx}
 \end{table}
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
+7 & HU4 & Scripts evaluación y comparación modelos & 15 h / 8 SP & Alumno & 0\% \\ \hline
+7 & HU4 & Optimización hiperparámetros & 20 h / 10 SP & Alumno & 0\% \\ \hline
+8 & HU4 & Validación cruzada y métricas desempeño & 20 h / 10 SP & Alumno & 0\% \\ \hline
+8 & HU4 & Documentación técnica modelo & 10 h / 5 SP & Alumno & 0\% \\ \hline
+8 & HU4 & Ejemplos de uso del modelo & 10 h / 5 SP & Alumno & 0\% \\ \hline
+9 & HU5 & Arquitectura módulo Inventory Tracker & 15 h / 8 SP & Alumno & 0\% \\ \hline
+9 & HU5 & Desarrollo backend ejecución modelo & 30 h / 15 SP & Alumno & 0\% \\ \hline
+10 & HU5 & Desarrollo API interna & 20 h / 10 SP & Alumno & 0\% \\ \hline
+10 & HU5 & Interfaz visualización resultados & 20 h / 10 SP & Alumno & 0\% \\ \hline
+11 & HU6 & Descarga predicciones CSV & 10 h / 5 SP & Alumno & 0\% \\ \hline
+11 & HU7 & Mecanismos alerta datos inconsistentes & 10 h / 5 SP & Alumno & 0\% \\ \hline
+11 & HU7 & Pruebas integración desarrollo & 15 h / 8 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Documentación técnica integración & 10 h / 5 SP & Alumno & 0\% \\ \hline
+12 & Despliegue & Soporte puesta en marcha producción & 10 h / 5 SP & Alumno & 0\% \\ \hline
+12 & Pruebas & Diseño plan pruebas & 10 h / 5 SP & Alumno & 0\% \\ \hline
+12 & Pruebas & Desarrollo pruebas unitarias & 15 h / 8 SP & Alumno & 0\% \\ \hline
+12 & Pruebas & Ejecución pruebas funcionales & 15 h / 8 SP & Alumno & 0\% \\ \hline
+12 & Pruebas & Validación predicciones históricos & 15 h / 8 SP & Alumno & 0\% \\ \hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|l|l|X|c|l|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
+12 & Pruebas & Casos extremos y errores & 10 h / 5 SP & Alumno & 0\% \\ \hline
+12 & Pruebas & Reportes pruebas & 15 h / 8 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Manual de usuario & 15 h / 8 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Reportes técnicos y resultados & 15 h / 8 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Diagramas arquitectura y flujo datos & 10 h / 5 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Entregables gestión proyecto & 30 h / 15 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Escritura memoria versión 1 & 30 h / 15 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Escritura memoria final & 40 h / 20 SP & Alumno & 0\% \\ \hline
+12 & Documentación & Preparación exposición proyecto & 12 h / 6 SP & Alumno & 0\% \\ \hline
+\end{tabularx}
+\end{table}
+
+\textbf{Recomendaciones:}
+\begin{itemize}
+  \item Verificar que la carga horaria por sprint sea equilibrada.
+  \item Usar sprints de 1 a 3 semanas, acordes al cronograma general.
+  \item Actualizar el \% completado durante el seguimiento del proyecto.
+  \item Considerar un sprint final exclusivo para pruebas, revisión y ajustes antes de la defensa.
+\end{itemize}
+
+
+\section{11. Diagrama de Gantt (sprints)}
+\label{sec:gantt}
+
+Visualizar en un diagrama de Gantt la planificación temporal del proyecto, tomando como base los sprints definidos en la sección anterior. Debe contemplar todas las horas del proyecto.
+
+Consigna:
+
+\begin{itemize}
+
+\item Elaborar un diagrama de Gantt que muestre la secuencia temporal de los sprints.
+
+\item Cada fila debe representar un sprint (con su número o nombre), y el eje horizontal debe indicar el tiempo (en semanas o fechas concretas).
+
+\item Las tareas técnicas derivadas de HU deben diferenciarse visualmente (por ejemplo, con un color distinto) de las tareas no técnicas (planificación, redacción, defensa).
+
+\item Incluir todas las tareas estimadas en cada sprint.
+\end{itemize}
+
+Recomendaciones para el Gantt:
+
+\begin{itemize}
+
+	\item Podés usar herramientas gratuitas como TeamGantt, ClickUp, GanttProject, [Google Sheets], [Trello + Planyway], entre otras.
+	\item Ordená los sprints de forma cronológica, comenzando con Sprint 0 (planificación) y finalizando con el sprint de defensa.
+	\item Asegurate de reflejar la duración realista de cada sprint según tu disponibilidad y el cronograma general del posgrado.
+	\item Incluí hitos importantes: reuniones, entregas parciales, defensa.
+\end{itemize}
+
+
+Incluir una imagen legible del diagrama de Gantt. Si es muy ancho, presentar primero la tabla y luego el gráfico de barras.
+
+
+
+\section{12. Normativa y cumplimiento de datos (gobernanza)}
+
+En esta sección se debe analizar si los datos utilizados en el proyecto están sujetos a normativas de protección de datos y privacidad, y en qué condiciones se pueden emplear.
+
+\textbf{Aspectos a considerar:}
+\begin{itemize}
+  \item Evaluar si los datos están regulados por normativas como GDPR, Ley 25.326 de Protección de Datos Personales en Argentina, HIPAA u otras según jurisdicción y temática.
+  \item Determinar si el uso de los datos requiere consentimiento explícito de los usuarios involucrados.
+  \item Indicar si existen restricciones legales, técnicas o contractuales sobre el uso, compartición o publicación de los datos.
+  \item Aclarar si los datos provienen de fuentes licenciadas, de acceso público o bajo algún tipo de autorización especial.
+  \item Analizar la viabilidad del proyecto desde el punto de vista legal y ético, considerando la gobernanza de los datos.
+\end{itemize}
+
+Este análisis es clave para garantizar el cumplimiento normativo y evitar conflictos legales durante el desarrollo y publicación del proyecto.
 
 
 \section{13. Gestión de riesgos}
@@ -646,46 +629,93 @@ Riesgo 3: plan de mitigación (si por el RPN fuera necesario elaborar un plan de
 
 \end{consigna}
 
+\section{14. Sprint Review}
+\label{sec:sprint_review}
 
-\section{14. Gestión de la calidad}
-\label{sec:calidad}
+La revisión de sprint (\emph{Sprint Review}) es una práctica fundamental en metodologías ágiles. Consiste en revisar y evaluar lo que se ha completado al finalizar un sprint. En esta instancia, se presentan los avances y se verifica si las funcionalidades cumplen con los criterios de aceptación establecidos. También se identifican entregables parciales y se consideran ajustes si es necesario.
 
-\begin{consigna}{red}
-Elija al menos diez requerimientos que a su criterio sean los más importantes/críticos/que aportan más valor y para cada uno de ellos indique las acciones de verificación y validación que permitan asegurar su cumplimiento.
+Aunque el proyecto aún se encuentre en etapa de planificación, esta sección permite proyectar cómo se evaluarán las funcionalidades más importantes del backlog. Esta mirada anticipada favorece la planificación enfocada en valor y permite reflexionar sobre posibles obstáculos.
 
-\begin{itemize} 
-\item Req \#1: copiar acá el requerimiento con su correspondiente número.
+\textbf{Objetivo:} anticipar cómo se evaluará el avance del proyecto a medida que se desarrollen las funcionalidades, utilizando como base al menos cuatro historias de usuario del \emph{Product Backlog}.
+
+
+Seleccionar al menos 4 HU del Product Backlog. Para cada una, completar la siguiente tabla de revisión proyectada:
+
+\textbf{Formato sugerido:}
+\begin{table}[htpb]
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|>{\raggedright\arraybackslash}m{2.5cm}|
+                >{\raggedright\arraybackslash}m{2.3cm}|
+                >{\raggedright\arraybackslash}m{3cm}|
+                >{\raggedright\arraybackslash}m{3cm}|
+                >{\raggedright\arraybackslash}m{3cm}|}
+\hline
+\rowcolor[HTML]{CCCCCC}
+\textbf{HU seleccionada} & \textbf{Tareas asociadas} & \textbf{Entregable esperado} & \textbf{¿Cómo sabrás que está cumplida?} & \textbf{Observaciones o riesgos} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU1}    & Tarea 2 & \multirow{-2}{=}{Módulo funcional} & \multirow{-2}{=}{Cumple criterios de aceptación definidos} & \multirow{-2}{=}{Falta validar con el tutor} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU3}    & Tarea 2 & \multirow{-2}{=}{Reporte generado} & \multirow{-2}{=}{Exportación disponible y clara} & \multirow{-2}{=}{Requiere datos reales} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU5}    & Tarea 2 & \multirow{-2}{=}{Panel de gestión} & \multirow{-2}{=}{Roles diferenciados operativos} & \multirow{-2}{=}{Riesgo en integración} \\
+\hline
+                         & Tarea 1 &                             &                                           &                                     \\ \cline{2-2}
+\multirow{-2}{=}{HU7}    & Tarea 2 & \multirow{-2}{=}{Informe trimestral} & \multirow{-2}{=}{PDF con gráficos y evolución} & \multirow{-2}{=}{Puede faltar tiempo para ajustes} \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{15. Sprint Retrospective}    
+\label{sec:sprint_retro}
+
+La retrospectiva de sprint es una práctica orientada a la mejora continua. Al finalizar un sprint, el equipo (o el alumno, si trabaja de forma individual) reflexiona sobre lo que funcionó bien, lo que puede mejorarse y qué acciones concretas pueden implementarse para trabajar mejor en el futuro.
+
+Durante la cursada se propuso el uso de la \textbf{Estrella de la Retrospectiva}, que organiza la reflexión en torno a cinco ejes:
 
 \begin{itemize}
-	\item Verificación para confirmar si se cumplió con lo requerido antes de mostrar el sistema al cliente. Detallar.
-	\item Validación con el cliente para confirmar que está de acuerdo en que se cumplió con lo requerido. Detallar. 
+\item  ¿Qué hacer más?
+\item  ¿Qué hacer menos?
+\item  ¿Qué mantener?
+\item  ¿Qué empezar a hacer?
+\item  ¿Qué dejar de hacer?
 \end{itemize}
 
-\end{itemize}
+Aun en una etapa temprana, esta herramienta permite que el alumno planifique su forma de trabajar, identifique anticipadamente posibles dificultades y diseñe estrategias de organización personal.
 
-Tener en cuenta que en este contexto se pueden mencionar simulaciones, cálculos, revisión de hojas de datos, consulta con expertos, mediciones, etc.  
+\textbf{Objetivo:} reflexionar sobre las condiciones iniciales del proyecto, identificando fortalezas, posibles dificultades y estrategias de mejora, incluso antes del inicio del desarrollo.
 
-Las acciones de verificación suelen considerar al entregable como ``caja blanca'', es decir se conoce en profundidad su funcionamiento interno.  
 
-En cambio, las acciones de validación suelen considerar al entregable como ``caja negra'', es decir, que no se conocen los detalles de su funcionamiento interno.
+Completar la siguiente tabla tomando como referencia los cinco ejes de la Estrella de la Retrospectiva (\emph{Starfish} o estrella de mar). Esta instancia te ayudará a definir buenas prácticas desde el inicio y prepararte para enfrentar el trabajo de forma organizada y flexible. Se deberá completar la tabla al menos para 3 sprints técnicos y 1 no técnico.
 
-\end{consigna}
+\textbf{Formato sugerido:}
 
-\section{15. Procesos de cierre}    
-\label{sec:cierre}
+\begin{table}[htpb]
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{1.8cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|
+                >{\raggedright\arraybackslash}p{2.3cm}|}
+\hline
+\rowcolor[HTML]{CCCCCC} 
+\textbf{Sprint tipo y N°} & \textbf{¿Qué hacer más?} & \textbf{¿Qué hacer menos?} & \textbf{¿Qué mantener?} & \textbf{¿Qué empezar a hacer?} & \textbf{¿Qué dejar de hacer?} \\
+\hline
+Sprint técnico - 1 & Validaciones continuas con el alumno & Cambios sin versión registrada & Pruebas con datos simulados & Documentar cambios propuestos & Ajustes sin análisis de impacto \\
+\hline
+Sprint técnico - 2 & Verificar configuraciones en múltiples escenarios & Modificar parámetros sin guardar historial & Perfiles reutilizables & Usar logs para configuración & Repetir pruebas manuales innecesarias \\
+\hline
+Sprint técnico - 8 & Comparar correlaciones con casos previos & Cambiar parámetros sin justificar & Revisión cruzada de métricas & Anotar configuraciones usadas & Trabajar sin respaldo de datos \\
+\hline
+Sprint no técnico - 12 (por ej.: ``Defensa'') & Ensayos orales con feedback & Cambiar contenidos en la memoria & Material visual claro & Dividir la presentación por bloques & Agregar gráficos difíciles de explicar \\
+\hline
+\end{tabular}
+\end{table}
 
-\begin{consigna}{red}
-Establecer las pautas de trabajo para realizar una reunión final de evaluación del proyecto, tal que contemple las siguientes actividades:
 
-\begin{itemize}
-	\item Pautas de trabajo que se seguirán para analizar si se respetó el Plan de Proyecto original:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento a aplicar. 
-	\item Identificación de las técnicas y procedimientos útiles e inútiles que se emplearon, los problemas que surgieron y cómo se solucionaron:\\
-	 - Indicar quién se ocupará de hacer esto y cuál será el procedimiento para dejar registro.
-	\item Indicar quién organizará el acto de agradecimiento a todos los interesados, y en especial al equipo de trabajo y colaboradores:\\
-	  - Indicar esto y quién financiará los gastos correspondientes.
-\end{itemize}
 
-\end{consigna}
 
 \end{document}
