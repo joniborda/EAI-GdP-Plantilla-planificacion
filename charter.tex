@@ -142,19 +142,18 @@ En la figura \ref{fig:diagBloques} se presenta el diagrama en bloques del sistem
 
 
 \begin{table}[ht]
-\caption{Identificación de los interesados}
-\label{tab:interesados}
+%\caption{Identificación de los interesados}
+%\label{tab:interesados}
 \begin{tabularx}{\linewidth}{@{}|l|X|X|l|@{}}
 \hline
 \rowcolor[HTML]{C0C0C0} 
-Rol                     & Nombre y Apellido & Organización         & Puesto                         \\ \hline
-Cliente                 & \clientename      & \empclientename      & CEO                             \\ \hline
-Responsable del Proyecto& \authorname       & FIUBA                & Alumno                          \\ \hline
-Orientador              & \supname          & \pertesupname        & Director del Trabajo Final      \\ \hline
-Usuario Final           & Lic. Juan Willink      & \empclientename      & Gerente de Ventas               \\ \hline
+Rol                     & Nombre y Apellido & Organización         	& Puesto							\\ \hline
+Cliente                 & \clientename      & \empclientename      	& CEO							\\ \hline
+Responsable del Proyecto& \authorname       & FIUBA                	& Alumno							\\ \hline
+Orientador              & \supname          & \pertesupname       		& Director del Trabajo Final		\\ \hline
+Usuario Final           & Lic. Juan Willink      & \empclientename     & Gerente de Ventas				\\ \hline
 \end{tabularx}
 \end{table}
-
 
 
 
@@ -466,58 +465,30 @@ Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
 \end{tabularx}
 \end{table}
 
-
 \section{11. Diagrama de Gantt (sprints)}
 \label{sec:gantt}
 
-Visualizar en un diagrama de Gantt la planificación temporal del proyecto, tomando como base los sprints definidos en la sección anterior. Debe contemplar todas las horas del proyecto.
+\begin{figure}[htpb]
+\centering 
+\includegraphics[width=1\textwidth]{./Figuras/Gantt-2.png}
+\caption{Diagrama Gantt.}
 
-Consigna:
-
-\begin{itemize}
-
-\item Elaborar un diagrama de Gantt que muestre la secuencia temporal de los sprints.
-
-\item Cada fila debe representar un sprint (con su número o nombre), y el eje horizontal debe indicar el tiempo (en semanas o fechas concretas).
-
-\item Las tareas técnicas derivadas de HU deben diferenciarse visualmente (por ejemplo, con un color distinto) de las tareas no técnicas (planificación, redacción, defensa).
-
-\item Incluir todas las tareas estimadas en cada sprint.
-\end{itemize}
-
-Recomendaciones para el Gantt:
-
-\begin{itemize}
-
-	\item Podés usar herramientas gratuitas como TeamGantt, ClickUp, GanttProject, [Google Sheets], [Trello + Planyway], entre otras.
-	\item Ordená los sprints de forma cronológica, comenzando con Sprint 0 (planificación) y finalizando con el sprint de defensa.
-	\item Asegurate de reflejar la duración realista de cada sprint según tu disponibilidad y el cronograma general del posgrado.
-	\item Incluí hitos importantes: reuniones, entregas parciales, defensa.
-\end{itemize}
-
-
-Incluir una imagen legible del diagrama de Gantt. Si es muy ancho, presentar primero la tabla y luego el gráfico de barras.
+\end{figure}
 
 
 
 \section{12. Normativa y cumplimiento de datos (gobernanza)}
 
-En esta sección se debe analizar si los datos utilizados en el proyecto están sujetos a normativas de protección de datos y privacidad, y en qué condiciones se pueden emplear.
 
-\textbf{Aspectos a considerar:}
-\begin{itemize}
-  \item Evaluar si los datos están regulados por normativas como GDPR, Ley 25.326 de Protección de Datos Personales en Argentina, HIPAA u otras según jurisdicción y temática.
-  \item Determinar si el uso de los datos requiere consentimiento explícito de los usuarios involucrados.
-  \item Indicar si existen restricciones legales, técnicas o contractuales sobre el uso, compartición o publicación de los datos.
-  \item Aclarar si los datos provienen de fuentes licenciadas, de acceso público o bajo algún tipo de autorización especial.
-  \item Analizar la viabilidad del proyecto desde el punto de vista legal y ético, considerando la gobernanza de los datos.
-\end{itemize}
+Los datos que se utilizarán en este proyecto contendrán identificadores únicos de usuarios obtenidos mediante una API privada de Shopify autorizada por la empresa cliente. El acceso será provisto exclusivamente con fines académicos y de desarrollo, y se realizará de acuerdo con los Términos de Servicio de Shopify.
 
-Este análisis es clave para garantizar el cumplimiento normativo y evitar conflictos legales durante el desarrollo y publicación del proyecto.
+Se tomarán medidas de pseudonimización para evitar la exposición de información sensible, eliminando o codificando los datos identificables antes de su análisis o documentación. Asimismo, se aplicará el principio de minimización de datos, solicitando únicamente la información estrictamente necesaria para el desarrollo del modelo de predicción.
 
------
+El uso de estos datos estará restringido por la Ley 25.326 de Protección de Datos Personales en Argentina y se prohibirá su difusión, redistribución o reutilización con otros fines. Además, se garantizarán condiciones de confidencialidad, evitando su publicación en reportes, repositorios o cualquier medio accesible a terceros no autorizados.
 
-Los datos utilizados en este proyecto contienen identificadores únicos y direcciones de correo electrónico de usuarios. Se tomaron medidas de pseudonimización para evitar la exposición de información sensible, eliminando o codificando los datos identificables. El acceso a la información fue otorgado por la empresa cliente, y su uso se restringe exclusivamente a fines académicos y de desarrollo, en cumplimiento con la Ley 25.326 de Protección de Datos Personales en Argentina.
+Estas acciones permitirán asegurar el cumplimiento normativo, la ética en el tratamiento de los datos y la protección de los derechos de los usuarios involucrados.
+
+
 
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
