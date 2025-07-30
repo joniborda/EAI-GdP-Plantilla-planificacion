@@ -85,7 +85,7 @@ Buenos Aires, \fechaInicioName
 
 \vspace{2cm}
 
-Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de una tienda en línea de la empresa \empclientename. El trabajo tendrá un presupuesto preliminar estimado de 684 horas y un costo estimado de \textcolor{red}{\$ XXX}, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \textcolor{red}{\fechaFinalName }.
+Por medio de la presente se acuerda con el \authorname\hspace{1px} que su Trabajo Final de la \degreename\hspace{1px} se titulará ``\ttitle'' y consistirá en desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de una tienda en línea de la empresa \empclientename. El trabajo tendrá un presupuesto preliminar estimado de 684 horas y un costo estimado de \$12.825.000, con fecha de inicio el \fechaInicioName\hspace{1px} y fecha de presentación pública el \textcolor{red}{\fechaFinalName }.
 
 Se adjunta a esta acta la planificación inicial.
 
@@ -482,7 +482,7 @@ Sprint & HU o fase & Tarea & Horas / SP & Responsable & \% Completado \\ \hline
 
 Los datos que se utilizarán en este proyecto contendrán identificadores únicos de usuarios obtenidos mediante una API privada de Shopify autorizada por la empresa cliente. El acceso será provisto exclusivamente con fines académicos y de desarrollo, y se realizará de acuerdo con los Términos de Servicio de Shopify.
 
-Se tomarán medidas de pseudonimización para evitar la exposición de información sensible, eliminando o codificando los datos identificables antes de su análisis o documentación. Asimismo, se aplicará el principio de minimización de datos, solicitando únicamente la información estrictamente necesaria para el desarrollo del modelo de predicción.
+Se tomarán medidas de ofuscación para evitar la exposición de información sensible, eliminando o codificando los datos identificables antes de su análisis o documentación. Asimismo, se aplicará el principio de minimización de datos, solicitando únicamente la información estrictamente necesaria para el desarrollo del modelo de predicción.
 
 El uso de estos datos estará restringido por la Ley 25.326 de Protección de Datos Personales en Argentina y se prohibirá su difusión, redistribución o reutilización con otros fines. Además, se garantizarán condiciones de confidencialidad, evitando su publicación en reportes, repositorios o cualquier medio accesible a terceros no autorizados.
 
@@ -492,6 +492,147 @@ Estas acciones permitirán asegurar el cumplimiento normativo, la ética en el t
 
 \section{13. Gestión de riesgos}
 \label{sec:riesgos}
+
+
+Riesgo 1: Baja calidad o inconsistencia de los datos obtenidos desde las APIs
+\begin{itemize}
+\item Severidad (S): 8
+Una baja calidad en los datos afectaría directamente la precisión del modelo de predicción, comprometiendo la utilidad del sistema para la toma de decisiones.
+
+\item Ocurrencia (O): 6
+Aunque las \textit{APIs} de Shopify y Triple Whale son robustas, pueden presentarse inconsistencias o errores de carga en ciertos períodos, sobre todo en integraciones recientes.
+\end{itemize}
+
+Riesgo 2: Cambios en las \textit{APIs} externas
+
+\begin{itemize}
+\item Severidad (S): 7
+Si se modifican los endpoints o se restringe el acceso a ciertas métricas, se vería afectada la actualización de datos históricos y la operación del sistema.
+
+\item Ocurrencia (O): 5
+Este tipo de cambios no son frecuentes, pero pueden ocurrir sin previo aviso por decisión unilateral de los proveedores.
+\end{itemize}
+
+Riesgo 3: Sobreajuste del modelo (\textit{overfitting})
+
+\begin{itemize}
+\item Severidad (S): 6
+Si el modelo se ajusta demasiado a los datos históricos, podría perder capacidad de generalización, resultando en malas predicciones a futuro.
+
+\item Ocurrencia (O): 5
+Es un riesgo habitual en proyectos de \textit{machine learning}, aunque puede mitigarse con técnicas adecuadas de validación cruzada.
+\end{itemize}
+
+Riesgo 4: Incumplimiento del cronograma por complejidad técnica
+
+\begin{itemize}
+\item Severidad (S): 5
+Un retraso significativo afectaría los tiempos de entrega al cliente y la integración con otros sistemas.
+
+\item Ocurrencia (O): 7
+Dada la complejidad de integrar varias fuentes y construir un modelo robusto, es un riesgo relevante.
+\end{itemize}
+
+Riesgo 5: Filtración o uso indebido de datos sensibles
+
+\begin{itemize}
+\item Severidad (S): 9
+La exposición de datos identificables como correos electrónicos podría implicar consecuencias legales o de reputación graves.
+
+\item Ocurrencia (O): 3
+El riesgo es bajo ya que se prevé la implementación de medidas de ofuscación y restricciones de acceso.
+\end{itemize}
+
+Riesgo 6: Pérdida del vínculo laboral con la empresa cliente durante el desarrollo del proyecto
+
+Justificación:
+Existe la posibilidad de que durante el desarrollo del trabajo final se disuelva el vínculo laboral actual con la empresa \empclientename. En ese caso, se podría dificultar el acceso a datos, herramientas o validaciones necesarias para completar el proyecto, afectando su continuidad.
+
+\begin{itemize}
+	\item Severidad (S): 9
+	La pérdida del acceso a recursos o información crítica podría implicar la necesidad de replantear partes sustanciales del proyecto o incluso buscar un nuevo cliente.
+	\item Ocurrencia (O): 4
+	Aunque actualmente el vínculo es estable, no puede descartarse completamente un cambio de situación laboral.
+\end{itemize}
+
+b) Tabla de gestión de riesgos      (El RPN se calcula como RPN=SxO)
+
+
+Criterio adoptado:
+Se tomarán medidas de mitigación para aquellos riesgos cuyo RPN supere los 30 puntos.
+
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|c|c|c|c|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0} 
+Riesgo & S & O & RPN & S* & O* & RPN* \\ \hline
+Baja calidad de datos       & 8  & 6  & 48    & 6   & 4   & 24     \\ \hline
+Cambios en las APIs       & 7  & 5  & 35    & 6   & 3   & 18     \\ \hline
+Sobreajuste del modelo       & 6  & 5  & 30    & 4   & 3   & 12     \\ \hline
+Demoras en cronograma       & 5  & 7  & 35    & 3   & 4   & 12     \\ \hline
+Filtración de datos       & 9  & 3  & 27    & 4   & 2   & 8     \\ \hline
+Desvinculación laboral     & 9  & 4  & 36    & 4   & 2   & 8     \\ \hline
+\end{tabularx}%
+\end{table}
+
+c) Plan de mitigación de riesgos
+
+Riesgo 1: Baja calidad de datos
+
+Plan de mitigación:
+Se establecerán rutinas automáticas de validación y limpieza de datos antes de ser procesados por el modelo.
+
+\begin{itemize}
+\item Severidad (S): 6*
+La calidad seguirá siendo importante, pero con validación previa se reduce su impacto.
+
+\item Ocurrencia (O): 4*
+La verificación regular reducirá las inconsistencias.
+\end{itemize}
+
+
+Riesgo 2: Cambios en las APIs
+
+Plan de mitigación:
+Se desarrollarán capas intermedias (\textit{wrappers}) para desacoplar el sistema de los cambios en las \textit{APIs}. Además, se monitorearán las actualizaciones oficiales.
+
+\begin{itemize}
+\item Severidad (S): 6*
+Los cambios seguirán siendo relevantes, pero se reducirá su impacto directo.
+
+\item Ocurrencia (O): 3*
+La supervisión reduce la probabilidad de fallos inesperados.
+\end{itemize}
+
+Riesgo 4: Demoras en el cronograma
+
+Plan de mitigación:
+Se trabajará en ciclos iterativos con entregas parciales, priorizando funcionalidades clave para asegurar un producto mínimo viable en tiempo.
+
+\begin{itemize}
+\item Severidad (S): 3*
+Las demoras parciales no afectarán el objetivo final.
+
+\item Ocurrencia (O): 4*
+La planificación iterativa mejora el control del avance.
+\end{itemize}
+
+Riesgo 6: Desvinculación laboral
+
+Plan de mitigación:
+
+Se acordará con la empresa la continuidad del acceso a los datos y a las herramientas necesarias para completar el trabajo final, aún en el caso de que se termine la relación laboral. Esto podría contemplarse en un documento formal o compromiso verbal con respaldo escrito.
+
+\begin{itemize}
+	\item Severidad (S): 4*
+Si se garantiza el acceso a los recursos clave, el impacto se reduce notablemente.
+
+	\item Ocurrencia (O): 2*
+Al prever esta situación y dejarla documentada, disminuye la probabilidad de que se interrumpa el acceso al entorno de trabajo.
+\end{itemize}
+
 
 \begin{consigna}{red}
 a) Identificación de los riesgos (al menos cinco) y estimación de sus consecuencias:
