@@ -212,6 +212,459 @@ Para el desarrollo del presente proyecto se supone que:
 \end{itemize}
 
 
+
+
+
+\section{6. Product Backlog}
+\label{sec:backlog}
+
+El Product Backlog debe organizarse en cuatro \textbf{\textit{\'{e}picas}} fundamentales del proyecto. Cada \'{e}pica debe contener al menos dos historias de usuario que describan funcionalidades clave.
+
+El Product Backlog debe permitir interpretar cómo será el proyecto y su funcionalidad. Se deben indicar claramente las prioridades entre las historias de usuario y si hay alguna opcional.
+
+Las historias de usuario deben ser breves, claras y medibles, expresando el rol, la necesidad y el propósito de cada funcionalidad. También deben tener una prioridad definida para facilitar la planificación de los sprints.
+
+Cada historia de usuario debe incluir una ponderación en \textit{Story Points}, un número entero que representa el tama\~no relativo de la historia. El criterio para calcular los Story Points debe indicarse explícitamente.
+
+Las historias deben seguir el formato: ``\textit{Como [rol], quiero [tal cosa] para [tal otra cosa]}''.
+
+Las \'{e}picas deben estructurarse de la siguiente forma:
+
+\begin{enumerate}
+	\item Épica 1: Integración de fuentes de datos
+	\begin{enumerate}
+		\item HU1: “Como analista de datos quiero importar datos de ventas desde Shopify para poder entrenar el modelo de predicción.”
+
+		\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+
+		\item HU2: “Como analista de datos quiero importar datos de inversión publicitaria desde Triple Whale para incluir la variable de inversión en el análisis de ventas.”
+
+		\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+
+		\item HU3: “Como analista de datos quiero consolidar los datos de Shopify y Triple Whale para tener un único dataset listo para el entrenamiento del modelo.”
+
+		\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+	\end{enumerate}
+	\item Épica 2: Modelado predictivo
+	\begin{enumerate}
+		\item HU4: “Como analista de datos quiero entrenar un modelo que prediga las ventas para poder anticipar la demanda de producción.”
+
+		\textit{Story points}: 13 (complejidad: 5, dificultad: 4, incertidumbre: 4)
+	\end{enumerate}
+	\item Épica 3: Visualización y exportación de resultados
+	\begin{enumerate}
+		\item HU5: “Como usuario de Inventory Tracker quiero visualizar las predicciones de ventas dentro del sistema para poder planificar la producción.”
+
+		\textit{Story points}: 8 (complejidad: 3, dificultad: 2, incertidumbre: 3)
+
+		\item HU6: “Como usuario de Inventory Tracker quiero descargar las predicciones en formato CSV para analizarlas externamente.”
+
+		\textit{Story points}: 3 (complejidad: 1, dificultad: 1, incertidumbre: 1)
+
+	\end{enumerate}
+	\item Épica 4: Monitoreo y alertas del sistema
+	\begin{enumerate}
+		\item HU7: “Como responsable del sistema quiero recibir alertas si hay datos faltantes que puedan afectar significativamente la precisión de las predicciones para tomar medidas al respecto.”
+
+		\textit{Story points}: 5 (complejidad: 2, dificultad: 2, incertidumbre: 1)
+		
+		\item HU8: “Como analista de datos quiero documentar el trabajo para realizar la entrega final del proyecto.”
+		
+		\textit{Story points}: 8 (complejidad: 5, dificultad: 3, incertidumbre: 1)
+		
+	\end{enumerate}
+\end{enumerate}
+
+
+\section{7. Criterios de aceptación de historias de usuario}
+\label{sec:criteriosAceptacion}
+
+Los criterios de aceptación deben establecerse para cada historia de usuario, asegurando que se cumplan las condiciones necesarias para que la funcionalidad sea validada correctamente.
+
+Cada historia debe tener criterios medibles, específicos y verificables. Deben permitir validar que se cumple con las necesidades del usuario.
+
+Se estructuran de forma análoga a las \'{e}picas del backlog:
+
+\begin{itemize}
+  \item \textbf{\'{E}pica 1}
+    \begin{itemize}
+      \item Criterios de aceptación HU1
+		\begin{itemize}
+      \item Se puede establecer conexión con la \textit{API} de Shopify utilizando credenciales válidas.
+
+      \item Los datos de ventas incluyen al menos: fecha de compra, producto, cantidad, precio y canal de venta.
+
+      \item El rango de fechas de las ventas a importar se puede configurar.
+
+      \item Los datos importados se almacenan en una base de datos local o de staging para su procesamiento posterior.
+
+      \item Se manejan correctamente errores de conexión, autenticación y respuesta vacía.
+
+      \item Existe un log del proceso de importación que registra la cantidad de registros importados y posibles errores.
+
+      \item La importación puede ejecutarse manualmente o programarse.      
+    \end{itemize}      
+      \item Criterios de aceptación HU2
+		\begin{itemize}
+      \item Se puede autenticar correctamente con la API de Triple Whale mediante la clave de acceso proporcionada.
+
+      \item La información importada incluye al menos: fecha, plataforma (Google, Facebook, Instagram, etc.), monto invertido y campaña.
+
+      \item El rango de fechas para la importación se puede configurar.
+
+      \item Los datos importados se almacenan en una base de datos estructurada para su uso en el modelo de predicción.
+
+      \item Se contempla el manejo de errores por fallos en la conexión o respuestas inválidas de la API.
+
+      \item Se genera un log que detalle la cantidad de registros importados y errores encontrados (si los hubiera).
+
+      \item La importación puede realizarse de forma programada o manual.
+
+      \item Se valida que no se dupliquen registros si la importación se ejecuta varias veces para un mismo período.      
+      \end{itemize}
+      
+    \end{itemize}
+  \item \textbf{\'{E}pica 2}
+    \begin{itemize}
+      \item Criterios de aceptación HU3
+
+    \begin{itemize}
+    		\item Se genera un único dataset que incluye variables de ventas (provenientes de Shopify) e inversión publicitaria (provenientes de Triple Whale), con correspondencia por fecha.
+
+		\item Las fechas se alinean correctamente entre ambas fuentes, considerando posibles diferencias de zona horaria.
+
+		\item En caso de que falten datos para alguna fecha en una de las fuentes, se imputan con valores nulos o definidos por el equipo (por ejemplo, inversión cero).
+
+		\item El dataset resultante contiene las siguientes columnas mínimas: fecha, ventas diarias, inversión total diaria, desglose por plataforma (si aplica).
+
+		\item Se valida que no haya duplicados ni registros con formato inválido.
+
+		\item El proceso de consolidación puede ejecutarse de forma automatizada y repetible.
+
+		\item El dataset final se guarda en un formato estructurado (por ejemplo, CSV o tabla en base de datos) listo para ser consumido por el modelo.
+
+		\item Se genera un log de consolidación con la cantidad de registros procesados, errores (si los hay) y fechas incluidas.      
+    \end{itemize}      
+      \item Criterios de aceptación HU4
+      
+	\begin{itemize}
+    		\item Se entrena al menos un modelo de predicción (por ejemplo, regresión lineal, árbol de decisión, red neuronal u otro) utilizando el dataset consolidado de ventas e inversión.
+
+    		\item El conjunto de datos se divide correctamente en entrenamiento y validación (por ejemplo, 80/20 o validación temporal).
+
+    		\item Se calcula y reporta el error de predicción utilizando métricas adecuadas (por ejemplo, MAE, RMSE, MAPE).
+
+    		\item Se selecciona el modelo con mejor desempeño sobre el conjunto de validación.
+
+    		\item El modelo es capaz de generar predicciones futuras en función de datos de entrada recientes.
+
+    		\item El entrenamiento es reproducible: el pipeline puede ejecutarse nuevamente con los mismos resultados (dado un seed o configuración).
+
+    		\item El modelo y los parámetros finales se almacenan en un repositorio o archivo accesible para futuras predicciones.
+
+    		\item Se documenta el proceso de entrenamiento, incluyendo qué variables se usaron, cómo se preprocesaron, y qué algoritmos fueron evaluados.
+
+    		\item Se realiza una validación visual de las predicciones en comparación con los datos reales (por ejemplo, gráfico de ventas reales vs. predichas).      
+    \end{itemize}      
+    \end{itemize}
+  \item \textbf{\'{E}pica 3}
+    \begin{itemize}
+      \item Criterios de aceptación HU5
+      \begin{itemize}
+      \item Las predicciones de ventas se muestran en la interfaz de Inventory Tracker junto a las fechas correspondientes.
+
+      \item La visualización incluye tanto las predicciones como los datos históricos de ventas, para permitir la comparación.
+
+      \item La información está disponible de forma clara y entendible (por ejemplo, mediante gráficos de líneas o tablas).
+
+      \item El usuario puede seleccionar un rango de fechas para ver predicciones específicas.
+
+      \item Las predicciones se actualizan automáticamente cuando se entrena un nuevo modelo o se actualizan los datos de entrada.
+
+      \item La interfaz muestra un indicador de cuándo fue generada la última predicción (timestamp).
+
+      \item Se indica visualmente que los valores mostrados son predicciones y no datos reales.
+
+      \item Las predicciones se integran sin errores en la interfaz actual del módulo Inventory Tracker.
+
+      \item El rendimiento de la interfaz sigue siendo aceptable al mostrar predicciones (por ejemplo, sin demoras perceptibles en la carga).
+	\end{itemize}
+      \item Criterios de aceptación HU6
+	\begin{itemize}
+      \item El sistema muestra un botón o enlace claramente identificado para descargar las predicciones en formato .csv.
+
+      \item El archivo descargado incluye las fechas y los valores de predicción correspondientes.
+
+      \item El archivo también incluye, si están disponibles, los datos históricos para comparación (opcional según configuración).
+
+      \item El formato del .csv es compatible con herramientas comunes de análisis como Excel, Google Sheets o Python (valores separados por comas, codificación UTF-8).
+
+      \item El nombre del archivo incluye una fecha y hora para identificar cuándo fue generado.
+
+      \item La descarga se realiza correctamente sin errores en navegadores modernos (Chrome, Firefox, Edge).
+
+      \item El contenido del archivo refleja exactamente lo que se muestra en la interfaz del módulo de predicción.
+
+      \item Si no hay predicciones generadas aún, el botón de descarga aparece deshabilitado o muestra un mensaje claro al usuario.
+    \end{itemize}
+    \end{itemize}
+  \item \textbf{\'{E}pica 4}
+    \begin{itemize}
+      \item Criterios de aceptación HU7
+      
+    \begin{itemize}
+      \item El sistema verifica automáticamente la integridad del dataset antes de cada entrenamiento del modelo.
+
+      \item Si se detectan datos faltantes críticos (por ejemplo, fechas sin ventas o sin inversión publicitaria), se genera una alerta.
+
+      \item La alerta incluye: Tipo de dato faltante (ventas, inversión, ambos); rango de fechas afectado, nivel de severidad del impacto estimado.
+
+      \item La alerta se muestra de forma visible en el sistema (por ejemplo, en el dashboard o módulo de predicción).
+
+      \item También se envía una notificación por correo electrónico al responsable del sistema (si está configurada esta opción).
+
+      \item El sistema no bloquea el entrenamiento, pero advierte que la precisión puede verse afectada.
+
+      \item La alerta desaparece solo cuando se completan los datos faltantes o se marca como revisada manualmente.
+
+      \item Se registra un log de todas las alertas emitidas, accesible desde una sección de administración o monitoreo.
+          \end{itemize}
+          
+      \item Criterios de aceptación HU8
+      
+    \begin{itemize}
+      \item Se entrega un documento final del proyecto en el formato solicitado por la institución llamado memoria del trabajo final.
+
+      \item El documento incluye una descripción clara del problema, objetivos, metodología, resultados y conclusiones.
+
+      \item Se documenta adecuadamente el proceso de desarrollo, incluyendo decisiones técnicas, herramientas utilizadas y justificación de enfoques.
+
+      \item Se incluyen diagramas de arquitectura, flujo de datos, tablas o visualizaciones necesarias para respaldar el análisis de datos y resultados.
+
+      \item El informe cita correctamente todas las fuentes externas y respeta las normas de integridad académica.
+
+      \item El documento fue revisado para corregir errores ortográficos y de redacción antes de la entrega.
+    \end{itemize}      
+    \end{itemize}
+\end{itemize}
+
+
+\section{8. Fases de CRISP-DM}
+
+\begin{enumerate}
+  \item \textbf{Comprensión del negocio:}  
+  El objetivo del proyecto es desarrollar un modelo de inteligencia artificial capaz de pronosticar las ventas de la tienda en línea de la empresa \empclientename. Esto permitirá anticipar la demanda y planificar la producción de manera eficiente, evitando faltantes o excesos de inventario. El valor agregado de aplicar IA en este contexto es la posibilidad de tomar decisiones estratégicas basadas en datos. Las métricas de éxito del proyecto incluyen la precisión del modelo (por ejemplo, mediante MAE, RMSE) y la utilidad práctica del pronóstico para la planificación de producción.
+
+  \item \textbf{Comprensión de los datos:}  
+  Se utilizan datos históricos de ventas y de inversión publicitaria. Los datos de ventas provienen de la API de Shopify e incluyen información como productos vendidos por día, canales de venta y comportamiento del usuario. La inversión publicitaria se obtiene desde la API de Triple Whale, con detalle de los montos invertidos en diferentes plataformas como Google, Facebook, Instagram y Klaviyo. El conjunto de datos abarca aproximadamente dos años y presenta una buena cobertura temporal, aunque puede haber días con registros faltantes o incompletos.
+
+  \item \textbf{Preparación de los datos:}  
+  Para el entrenamiento del modelo fue necesario consolidar los datos provenientes de Shopify y Triple Whale, generando un único dataset unificado por fecha. Se aplicaron transformaciones como limpieza de datos, imputación de valores faltantes, conversión de tipos y normalización de variables. Además, se generaron variables derivadas, como el promedio móvil de ventas o acumulados semanales de inversión.
+
+  \item \textbf{Modelado:}  
+  El problema a resolver es de tipo regresión, ya que se busca predecir una variable continua (ventas diarias). Se consideraron distintos algoritmos supervisados como regresión lineal, árbol de decisión, random forest, XGBoost y redes neuronales. La selección del modelo se basó en experimentación con validación cruzada.
+
+  \item \textbf{Evaluación del modelo:}  
+  La evaluación del rendimiento se realizó utilizando métricas como el MAE (Mean Absolute Error), RMSE (Root Mean Square Error) y MAPE (Mean Absolute Percentage Error). También se analizó la capacidad del modelo para captar la estacionalidad y tendencias generales. La comparación entre modelos se hizo sobre un conjunto de validación y se eligió el que mostró mejor desempeño en términos de precisión y generalización.
+
+  \item \textbf{Despliegue del modelo (opcional):}  
+  El modelo entrenado se integrará dentro del sistema del cliente denominado Inventory Tracker. El despliegue se hará en un entorno productivo con periodicidad de actualización semanal. Las predicciones se mostrarán en el sistema mediante visualizaciones y estarán disponibles para descarga en formato CSV. Además, se contempla un sistema de alertas para advertir sobre datos faltantes que puedan comprometer la precisión del modelo.
+\end{enumerate}
+
+\section{9. Desglose del trabajo en tareas}
+\label{sec:wbs}
+
+
+\begin{enumerate}
+\item Planificación del proyecto (30 h)
+\begin{enumerate}
+
+\item Definir alcance y cronograma (10 h)
+\item Presentación de plan de trabajo (8 h)
+\item Reuniones de seguimiento con el cliente y partes interesadas (12 h)
+\end{enumerate}
+
+\item HU1 (36 h)
+\begin{enumerate}
+\item Revisión de la documentación técnica de las APIs de Shopify (6 h)
+\item Pruebas de conexión, autenticación y extracción de datos de prueba (10 h)
+\item Generar script para descargar y almacenar resultados en archivos o base de datos (10 h)
+\item Comprobar la ejecución del script (10 h)
+\end{enumerate}
+
+
+\item HU2 (36 h)
+\begin{enumerate}
+\item Revisión de la documentación técnica de las APIs de Shopify y Triple Whale (6 h)
+\item Pruebas de conexión, autenticación y extracción de datos de prueba (10 h)
+\item Generar script para descargar y almacenar resultados en archivos o base de datos (10 h)
+\item Comprobar la ejecución del script (10 h)
+\end{enumerate}
+
+
+\item HU3 (90 h)
+\begin{enumerate}
+\item Limpieza y normalización de datos de Shopify (15 h)
+\item Limpieza y normalización de datos de Triple Whale (15 h)
+\item Diseño y desarrollo del pipeline de consolidación de datasets (20 h)
+\item Implementación de procesos de detección y manejo de outliers (10 h)
+\item Implementación de estrategias de imputación de datos faltantes (10 h)
+\item Pruebas y validación del pipeline de datos (10 h)
+\item Documentación técnica del pipeline de datos (10 h)
+\end{enumerate}
+
+
+\item HU4 (160 h)
+\begin{enumerate}
+	\item Investigación y selección de algoritmos y técnicas de predicción (20 h)
+	\item Implementación inicial de modelos candidatos (35 h)
+	\item Desarrollo de scripts para evaluación y comparación de modelos (20 h)
+	\item Optimización y ajuste de hiperparámetros (25 h)
+	\item Validación cruzada y análisis de métricas de desempeño (20 h)
+	\item Generación de documentación técnica detallada del modelo (20 h)
+	\item Preparación de ejemplos de uso del modelo para integración (20 h)
+\end{enumerate}
+
+
+\item HU5 (50 h)
+\begin{enumerate}
+	\item Diseñar el componente de visualización (20 h)
+	\item Crear un endpoint que devuelva las predicciones de forma estructurada (10 h)
+	\item Desarrollar el \textit{frontend} para mostrar predicciones (20 h)
+\end{enumerate}
+
+
+\item HU6 (50 h)
+\begin{enumerate}
+	\item Definir estructura del CSV (10 h)
+	\item Implementar generación de CSV en \textit{backend} (20 h)
+	\item Desarrollar botón de descarga en frontend (10 h)
+	\item Verificar que el archivo se descargue correctamente en distintos navegadores (10 h)
+\end{enumerate}
+
+
+\item HU7 (80 h)
+\begin{enumerate}
+	\item Definir criterios de datos faltantes significativos (20 h)
+	\item Desarrollar lógica de detección en \textit{backend} (20 h)
+	\item Generar alertas automáticas (20 h)
+	\item Mostrar en el sistema si hay advertencias activas o todo está correcto (10 h)
+	\item Testear escenarios con datos incompletos (10 h)
+\end{enumerate}
+
+
+\item HU8 (152 h)
+\begin{enumerate}
+\item Redacción del manual de usuario (15 h)
+\item Preparación de reportes técnicos y resultados de pruebas (15 h)
+\item Elaboración de diagramas de arquitectura y flujo de datos (10 h)
+\item Entregables de gestión de proyecto (30 h)
+\item Escritura de la memoria del trabajo versión 1 (30 h)
+\item Escritura de la memoria del trabajo de final  (40 h)
+\item Preparación de presentaciones para exposición del proyecto (12 h)
+\end{enumerate}
+\end{enumerate}
+
+Cantidad total de horas: 684 h
+
+
+
+\begin{table}[htpb]
+\centering
+\begin{tabularx}{\linewidth}{@{}|X|X|c|c|@{}}
+\hline
+\rowcolor[HTML]{C0C0C0}
+Historia de usuario & Tarea técnica & Estimación & Prioridad \\ \hline
+Planificación & Tarea 1.1 & 10 h & Alta \\ \hline
+Planificación & Tarea 1.2 & 8 h & Alta \\ \hline
+Planificación & Tarea 1.3 & 12 h & Alta \\ \hline
+HU1 & Tarea 2.1 HU1 & 6 h & Baja \\ \hline
+HU1 & Tarea 2.2 HU1 & 10 h & Media \\ \hline
+HU1 & Tarea 2.3 HU1 & 10 h & Alta \\ \hline
+HU1 & Tarea 2.4 HU1 & 10 h & Alta \\ \hline
+
+HU2 & Tarea 3.1 HU2 & 6 h & Baja \\ \hline
+HU2 & Tarea 3.2 HU2 & 10 h & Media \\ \hline
+HU2 & Tarea 3.3 HU2 & 10 h & Alta \\ \hline
+HU2 & Tarea 3.4 HU2 & 10 h & Alta \\ \hline
+
+HU3 & Tarea 4.1 HU3 & 15 h & Alta \\ \hline
+HU3 & Tarea 4.2 HU3 & 15 h & Alta \\ \hline
+HU3 & Tarea 4.3 HU3 & 20 h & Media \\ \hline
+HU3 & Tarea 4.4 HU3 & 10 h & Media \\ \hline
+HU3 & Tarea 4.5 HU3 & 10 h & Media \\ \hline
+HU3 & Tarea 4.6 HU3 & 10 h & Media \\ \hline
+HU3 & Tarea 4.7 HU3 & 10 h & Media \\ \hline
+
+HU4 & Tarea 5.1 HU4 & 20 h & Alta \\ \hline
+HU4 & Tarea 5.2 HU4 & 35 h & Alta \\ \hline
+HU4 & Tarea 5.3 HU4 & 20 h & Alta \\ \hline
+HU4 & Tarea 5.4 HU4 & 25 h & Media \\ \hline
+HU4 & Tarea 5.5 HU4 & 20 h & Media \\ \hline
+HU4 & Tarea 5.6 HU4 & 20 h & Baja \\ \hline
+HU4 & Tarea 5.7 HU4 & 20 h & Baja \\ \hline
+
+HU5 & Tarea 6.1 HU5 & 20 h & Alta \\ \hline
+HU5 & Tarea 6.2 HU5 & 10 h & Media \\ \hline
+HU5 & Tarea 6.3 HU5 & 20 h & Alta \\ \hline
+
+HU6 & Tarea 7.1 HU6 & 10 h & Alta \\ \hline
+HU6 & Tarea 7.2 HU6 & 20 h & Alta \\ \hline
+HU6 & Tarea 7.3 HU6 & 10 h & Media \\ \hline
+HU6 & Tarea 7.4 HU6 & 10 h & Baja \\ \hline
+
+HU7 & Tarea 8.1 HU7 & 20 h & Alta \\ \hline
+HU7 & Tarea 8.2 HU7 & 20 h & Media \\ \hline
+HU7 & Tarea 8.3 HU7 & 20 h & Alta \\ \hline
+HU7 & Tarea 8.4 HU7 & 10 h & Media \\ \hline
+HU7 & Tarea 8.5 HU7 & 10 h & Baja \\ \hline
+
+HU8 & Tarea 9.1 HU8 & 15 h & Baja \\ \hline
+HU8 & Tarea 9.2 HU8 & 15 h & Media \\ \hline
+HU8 & Tarea 9.3 HU8 & 10 h & Media \\ \hline
+HU8 & Tarea 9.4 HU8 & 30 h & Alta \\ \hline
+HU8 & Tarea 9.5 HU8 & 30 h & Alta \\ \hline
+HU8 & Tarea 9.6 HU8 & 40 h & Alta \\ \hline
+HU8 & Tarea 9.7 HU8 & 12 h & Alta \\ \hline
+
+\end{tabularx}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section{6. Requerimientos}
 \label{sec:requerimientos}
 
